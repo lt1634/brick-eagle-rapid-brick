@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-bg: #efe8d8;
+  --color-surface: #f7f3ea;
+  --color-raised: #fffaf1;
+  --color-surface-2: #ebe3d2;
+  --color-ink: #1a221c;
+  --color-fg: #1a221c;
+  --color-muted: #5c675f;
+  --color-subtle: #8a938c;
+  --color-primary: #1f5c52;
+  --color-primary-fg: #f4efe4;
+  --color-border: #d4cbb8;
+  --color-border-strong: #b9ae97;
+  --color-match: #1f5c52;
+  --color-close: #7a5a2e;
+  --color-danger: #8f3d32;
+  --color-sea: #1f5c52;
+  --color-sand: #efe8d8;
+  --font-sans: "Noto Sans HK", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Noto Serif HK", "Noto Serif TC", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --shadow-card: 0 1px 0 rgba(26, 34, 28, 0.04), 0 12px 32px -18px rgba(26, 34, 28, 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.horizon {
+  background:
+    radial-gradient(120% 80% at 50% -10%, color-mix(in oklab, var(--color-primary) 14%, transparent), transparent 55%),
+    linear-gradient(180deg, #e7efe9 0%, var(--color-bg) 42%, var(--color-bg) 100%);
+}
+
+.paper-grain {
+  background-image:
+    linear-gradient(180deg, color-mix(in oklab, var(--color-raised) 70%, transparent), transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      color-mix(in oklab, var(--color-ink) 2.5%, transparent) 3px
+    );
+}

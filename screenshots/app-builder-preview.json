@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "梅窩換樓",
+      "hasCanvas": false,
+      "bodyTextLen": 1532,
+      "bodyTextHash": "9f38173a9f6cccbaab178a2e752ad0cc063ce5662841d4b2987a1ac3a176daaf",
+      "bodyTextPrefix": "SILVERMINE BAY 梅窩換樓 只睇梅窩。村屋 700 呎；買盤低過 $400萬、大於 400 呎。居屋自動剔除。 更新",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "梅窩換樓",
+      "hasCanvas": false,
+      "bodyTextLen": 1532,
+      "bodyTextHash": "9f38173a9f6cccbaab178a2e752ad0cc063ce5662841d4b2987a1ac3a176daaf",
+      "bodyTextPrefix": "SILVERMINE BAY 梅窩換樓 只睇梅窩。村屋 700 呎；買盤低過 $400萬、大於 400 呎。居屋自動剔除。 更新",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
