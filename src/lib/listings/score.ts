@@ -1,6 +1,5 @@
 import {
   DEFAULT_CRITERIA,
-  OWN_HOME,
   type Criteria,
   type Listing,
 } from "./types";
@@ -84,20 +83,3 @@ function sizeOk(listing: Listing, criteria: Criteria): boolean {
   return sqft > criteria.minAptSqft - 1 && sqft >= criteria.minAptSqft;
 }
 
-export function swapDelta(listing: Listing) {
-  const extraSqft =
-    listing.sqft != null ? listing.sqft - OWN_HOME.sqft : null;
-  const vsBuy =
-    listing.deal === "sale" && listing.price != null
-      ? listing.price - OWN_HOME.buyPrice
-      : null;
-  const vsComp =
-    listing.deal === "sale" && listing.price != null
-      ? listing.price - OWN_HOME.comps[0].price
-      : null;
-  return { extraSqft, vsBuy, vsComp };
-}
-
-export function ownUnitPrice(): number {
-  return Math.round(OWN_HOME.buyPrice / OWN_HOME.sqft);
-}

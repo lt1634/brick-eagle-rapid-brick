@@ -2,7 +2,7 @@ import { Bookmark, ExternalLink, Send } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatDelta, formatPrice, formatSqft, telegramShareUrl } from "@/lib/format";
-import { matchLevel, swapDelta, unitPrice, type MatchLevel } from "@/lib/listings/score";
+import { matchLevel, unitPrice, type MatchLevel } from "@/lib/listings/score";
 import type { Criteria, Listing } from "@/lib/listings/types";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +24,6 @@ export function ListingCard({
   onToggleSave: () => void;
 }) {
   const level = matchLevel(listing, criteria);
-  const delta = swapDelta(listing);
   const psf = unitPrice(listing);
   const shareText = [
     listing.deal === "sale" ? "售" : "租",
@@ -86,28 +85,6 @@ export function ListingCard({
           {listing.beds ? <span>{listing.beds}房</span> : null}
           {listing.baths ? <span>{listing.baths}浴</span> : null}
         </div>
-
-        {listing.deal === "sale" && (delta.extraSqft != null || delta.vsBuy != null) ? (
-          <p className="rounded-md bg-surface-2 px-3 py-2 text-sm text-muted">
-            對卓濤軒
-            {delta.extraSqft != null ? (
-              <span className="ml-2 tabular-nums text-fg">
-                {delta.extraSqft >= 0 ? "+" : ""}
-                {delta.extraSqft}呎
-              </span>
-            ) : null}
-            {delta.vsBuy != null ? (
-              <span
-                className={cn(
-                  "ml-2 tabular-nums",
-                  delta.vsBuy < 0 ? "text-primary" : "text-close",
-                )}
-              >
-                {formatDelta(delta.vsBuy, "sale")}
-              </span>
-            ) : null}
-          </p>
-        ) : null}
 
         <div className="flex items-center justify-between gap-2 text-xs text-subtle">
           <span className="truncate">

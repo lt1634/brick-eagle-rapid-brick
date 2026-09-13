@@ -16,10 +16,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatPrice, formatSqft, telegramShareUrl } from "@/lib/format";
 import { loadListings } from "@/lib/listings/functions";
-import { isHos, matchLevel, ownUnitPrice } from "@/lib/listings/score";
+import { isHos, matchLevel } from "@/lib/listings/score";
 import { SEED_LISTINGS } from "@/lib/listings/seed";
 import { HUNT_SOURCES } from "@/lib/listings/sources";
-import { OWN_HOME, type Criteria, type Listing } from "@/lib/listings/types";
+import { type Criteria, type Listing } from "@/lib/listings/types";
 import { useAppState } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -122,8 +122,6 @@ function HomePage() {
             </Button>
           </div>
         </div>
-
-        <OwnHome />
 
         <div className="mt-5 flex flex-wrap items-center gap-2 text-xs text-subtle">
           <Badge variant={live ? "match" : "muted"}>{live ? "網上即時" : "備用資料"}</Badge>
@@ -236,39 +234,6 @@ function rank(listing: Listing, criteria: Criteria) {
   return base + (listing.deal === "sale" ? price / 1e6 : price / 1e3);
 }
 
-function OwnHome() {
-  const psf = ownUnitPrice();
-  const comp = OWN_HOME.comps[0];
-  return (
-    <section className="mt-6 rounded-xl border border-border bg-raised/90 p-4 shadow-card sm:p-5">
-      <div className="flex items-start gap-3">
-        <div className="flex size-11 items-center justify-center rounded-md bg-primary text-primary-fg">
-          <Home className="size-5" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-subtle">而家住緊</p>
-          <h2 className="font-display text-xl font-medium">
-            {OWN_HOME.name}
-            {OWN_HOME.block}
-            {OWN_HOME.floor}
-            {OWN_HOME.flat}
-          </h2>
-          <p className="mt-1 text-sm text-muted">
-            {OWN_HOME.boughtLabel} · @{psf.toLocaleString("en-HK")} · {OWN_HOME.address}
-          </p>
-          <a
-            href={comp.url}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-2 inline-block text-sm text-primary underline-offset-4 hover:underline"
-          >
-            同座 3樓 D 成交 {formatPrice(comp.price, "sale")}／{formatSqft(comp.sqft)}（{comp.date}）
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function FilterField({
   label,

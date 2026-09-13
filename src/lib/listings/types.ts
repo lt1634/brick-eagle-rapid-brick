@@ -44,30 +44,9 @@ export type Criteria = {
   muiWoOnly: boolean;
 };
 
-export const OWN_HOME = {
-  name: "卓濤軒",
-  block: "2座",
-  floor: "1樓",
-  flat: "D室",
-  address: "梅窩碼頭路18A號",
-  buyPrice: 4_150_000,
-  sqft: 350,
-  extra: "連平台",
-  boughtLabel: "購入 $415萬 · 350呎連平台",
-  comps: [
-    {
-      label: "2座 3樓 D室",
-      date: "2026-06-23",
-      price: 3_480_000,
-      sqft: 354,
-      note: "註冊處成交，同座同室向、連平台",
-      url: "https://www.midland.com.hk/zh-hk/estate/%E6%96%B0%E7%95%8C-%E5%A4%A7%E5%B6%BC%E5%B1%B1%E5%8D%97-%E5%8D%93%E6%BF%A4%E8%BB%92-E00183",
-    },
-  ],
-} as const;
 
 export const DEFAULT_CRITERIA: Criteria = {
-  maxSale: 4_000_000,
+  maxSale: 10_000_000,
   minAptSqft: 401,
   minVillageSqft: 700,
   maxRent: 20_000,
